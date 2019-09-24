@@ -8,11 +8,18 @@
  */
 void push_opcode(stack_t **stack, unsigned int line_number);
 {
+	int i;
 	(void)line_number;
-
-	add_dnodeint(stack, );
+	
+	for (i = 0; global.arg_1[i] != '\0'; i++)
+	{
+		if (isdigit(global.arg_1[i] == 0))
+			fprintf(stderr, "L%i: usage: push integer", line_number);
+		else
+			number = atoi(global.arg_1);
+	}
+	add_dnodeint(stack, number);
 }
-
 /**
  * pall_opcode - prints all the values on the stack
  *@stack_t: double pointer to linked list

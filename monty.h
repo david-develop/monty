@@ -39,7 +39,23 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-/* general double linked list functions */
+/**
+ * struct global_s - global variables struct
+ * @arg_1: first argument
+ * @flag: stack if 0, queue otherwise
+ * Description: global variables
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct global_s
+{
+        char *arg_1;
+	int flag;
+} global_t;
+
+/*Global variable*/
+extern global_t *global;
+
+/*General double linked list functions*/
 stack_t *add_dnodeint(stack_t **head, int n);
 stack_t *add_dnodeint_end(stack_t **head, int n);
 void delete_head(stack_t **head, int n);
