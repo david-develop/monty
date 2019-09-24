@@ -2,13 +2,10 @@
 #define MONTY_H
 
 #include <stdio.h>
-#include <stddef.h>
 #include <stdlib.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
 #include <string.h>
+#include <ctype.h>
+
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -20,9 +17,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -35,8 +32,8 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 /**
@@ -48,12 +45,13 @@ typedef struct instruction_s
  */
 typedef struct global_s
 {
-        char *arg_1;
+	char *arg_1;
 	int flag;
+	ssize_t verif;
 } global_t;
 
 /*Global variable*/
-extern global_t *global;
+extern global_t global;
 
 /*General double linked list functions*/
 stack_t *add_dnodeint(stack_t **head, int n);
@@ -66,7 +64,7 @@ size_t dlistint_len(const stack_t *head);
 
 /*Source Monty Functions*/
 char **split_line(char *line);
-int (*get_op(char *input))(stack_t **stack, unsigned int line_number);
+void (*get_op(char *input))(stack_t **stack, unsigned int line_number);
 
 /*General Functions*/
 void _freearrp(char **av);
@@ -76,10 +74,10 @@ int _strlen(char *s);
 char *_strtok(char *s, char *delim);
 
 /*Opcode functions*/
-int push_opcode(stack_t **stack, unsigned int line_number);
-int pall_opcode(stack_t **stack, unsigned int line_number);
-int pint_opcode(stack_t **stack, unsigned int line_number);
-int pop_opcode(stack_t **stack, unsigned int line_number);
-int add_opcode(stack_t **stack, unsigned int line_number);
+void push_opcode(stack_t **stack, unsigned int line_number);
+void pall_opcode(stack_t **stack, unsigned int line_number);
+void pint_opcode(stack_t **stack, unsigned int line_number);
+void pop_opcode(stack_t **stack, unsigned int line_number);
+void add_opcode(stack_t **stack, unsigned int line_number);
 
 #endif

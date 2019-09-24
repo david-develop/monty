@@ -6,14 +6,13 @@
  *@line_number: line number
  *Return: Nothing.
  */
-int push_opcode(stack_t **stack, unsigned int line_number);
+void push_opcode(stack_t **stack, unsigned int line_number)
 {
-	int i;
-	(void)line_number;
+	int i, number;
 
 	for (i = 0; global.arg_1[i] != '\0'; i++)
 	{
-		if (isdigit(global.arg_1[i] == 0))
+		if (isdigit(global.arg_1[i]) == 0)
 			fprintf(stderr, "L%i: usage: push integer", line_number);
 		else
 			number = atoi(global.arg_1);
@@ -26,7 +25,7 @@ int push_opcode(stack_t **stack, unsigned int line_number);
  *@line_number: line number
  *Return: Nothing.
  */
-void pall_opcode(stack_t **stack, unsigned int line_number);
+void pall_opcode(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
@@ -39,7 +38,7 @@ void pall_opcode(stack_t **stack, unsigned int line_number);
  *@line_number: line number
  *Return: Nothing.
  */
-void pint_opcode(stack_t **stack, unsigned int line_number);
+void pint_opcode(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
@@ -52,9 +51,9 @@ void pint_opcode(stack_t **stack, unsigned int line_number);
  *@line_number: line number
  *Return: Nothing.
  */
-void pop_opcode(stack_t **stack, unsigned int line_number);
+void pop_opcode(stack_t **stack, unsigned int line_number)
 {
 	(void)line_number;
 
-	delete_head(stack);
+	delete_head(stack, 0);
 }

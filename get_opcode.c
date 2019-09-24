@@ -1,12 +1,26 @@
 #include "monty.h"
+/**
+ * non_match - return 0
+ * @av: array of pointers with arguments.
+ * @line: string input by user
+ * @env: enviroments address.
+ * @errval: error print data.
+ * Return: 0 always.
+ */
+void non_match(stack_t **stack, unsigned int line_number)
+{
+	(void) stack;
+	(void) line_number;
 
+	return;
+}
 /**
  * get_op_func - selects the correct function to perform the operation.
  * @input: pointer to a input command function
  * Return:.
  */
 
-int (*get_op(char *command))(stack_t **stack, unsigned int line_number)
+void (*get_op(char *command))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t ops[] = {
 		{"push", push_opcode},
@@ -16,18 +30,18 @@ int (*get_op(char *command))(stack_t **stack, unsigned int line_number)
 		{"pop", pop_opcode},
 		{"swap", swap_opcode},
 		{"nop", nop_opcode},*/
-		{NULL, NULL}
+		{NULL, non_match}
 	};
 	int i;
+	int num_builts = 2;
 
-	i = 0;
-	while (ops[i].opcode != NULL)
+	for (i = 0; i < num_builts; i++)
 	{
 		if (strcmp(command, ops[i].opcode) == 0)
 		{
-			return (*ops[i].f);
+			return (ops[i].f);
 		}
-		i++;
 	}
-	return (-1);
+	global.verif = -1;
+	return (ops[num_builts].f);
 }

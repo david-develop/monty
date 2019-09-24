@@ -14,7 +14,10 @@ stack_t *add_dnodeint(stack_t **head, int n)
 	tmp = *head;
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
-		return (NULL);
+	{
+		fprintf(stderr, "Error: malloc failed\n"); /*Error*/
+		exit (EXIT_FAILURE);
+	}
 	new->n = n;
 	new->next = *head;
 	new->prev = NULL;
@@ -40,7 +43,10 @@ stack_t *add_dnodeint_end(stack_t **head, int n)
 		return (NULL);
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
-		return (NULL);
+	{
+		fprintf(stderr, "Error: malloc failed\n"); /*Error*/
+		exit (EXIT_FAILURE);
+	}
 	new->n = n;
 	new->next = NULL;
 	if (*head == NULL)
@@ -72,6 +78,7 @@ void delete_head(stack_t **head, int n)
 	(void)n;
 	stack_t *tmp;
 
+	tmp = *head;
 	*head = tmp->next;
 	if (tmp->next != NULL)
 	{
@@ -86,7 +93,7 @@ void delete_head(stack_t **head, int n)
  */
 void free_dlistint(stack_t *head)
 {
-	dlistint_t *tmp;
+	stack_t *tmp;
 
 	if (head == NULL)
 		return;

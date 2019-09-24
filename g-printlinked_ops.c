@@ -27,15 +27,13 @@ size_t print_dlistint(const stack_t *head)
  */
 size_t print_dlistfirst(const stack_t *head)
 {
-	size_t i;
-
 	if (head == NULL)
 		return (0);
 	if (head->next != NULL)
 	{
 		printf("%i\n", head->n);
 	}
-	return (i);
+	return (0);
 }
 /**
  * dlistint_len - returns the number of elements in stack_t list.
