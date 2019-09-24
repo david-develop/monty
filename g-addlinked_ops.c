@@ -16,7 +16,7 @@ stack_t *add_dnodeint(stack_t **head, int n)
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n"); /*Error*/
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	new->n = n;
 	new->next = *head;
@@ -45,7 +45,7 @@ stack_t *add_dnodeint_end(stack_t **head, int n)
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n"); /*Error*/
-		exit (EXIT_FAILURE);
+		exit(EXIT_FAILURE);
 	}
 	new->n = n;
 	new->next = NULL;
@@ -86,6 +86,7 @@ void delete_head(stack_t **head, int n)
 	}
 	free(tmp);
 }
+
 /**
  * free_dlistint - frees a stack_t list.
  * @head: pointer to pointer to listsint_t

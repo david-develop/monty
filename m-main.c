@@ -2,10 +2,16 @@
 
 global_t global = {NULL, 0, 0};
 
+/**
+ * main - entry point for scrpiting interpreter program.
+ * @ac: arguments count.
+ * @av: arguments vector.
+ * Return: always EXIT_SUCCESS on success.
+ */
+
 int main(int ac, char **av)
 {
-	char *file_from = av[1];
-	char *line = NULL;
+	char *file_from = av[1], *line = NULL;
 	char **argum;
 	size_t buffsz = 0;
 	ssize_t linesz;
@@ -25,7 +31,6 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	linesz = getline(&line, &buffsz, fd);
-
 	while (linesz >= 0)
 	{
 		line_number++;
@@ -35,18 +40,14 @@ int main(int ac, char **av)
 		(*get_op(argum[0]))(&stack, line_number);
 		if (global.verif == -1)
 		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, argum[0]); /*Error*/
+			fprintf(stderr, "L%d: unknown instruction %s\n", line_number, argum[0]);
 			fclose(fd);
-			free(line);
-			free_dlistint(stack);
-			_freearrp(argum);
+			free(line), free_dlistint(stack), _freearrp(argum);
 			exit(EXIT_FAILURE);
 		}
 		_freearrp(argum);
 		linesz = getline(&line, &buffsz, fd);
 	}
-	free_dlistint(stack);
-	fclose(fd);
-	free(line);
+	free_dlistint(stack), free(line), fclose(fd);
 	return (EXIT_SUCCESS);
 }
