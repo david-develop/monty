@@ -31,4 +31,17 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/* get-opcode function */
+void (*get_op(char *input))(stack_t **stack, unsigned int line_number);
+
+/* general double linked list functions */
+stack_t *add_dnodeint(stack_t **head, int n);
+stack_t *add_dnodeint_end(stack_t **head, int n);
+void delete_head(stack_t **head, int n);
+void free_dlistint(stack_t *head);
+
+size_t print_dlistint(const stack_t *head);
+size_t print_dlistfirst(const stack_t *head);
+size_t dlistint_len(const stack_t *head);
+
 #endif
