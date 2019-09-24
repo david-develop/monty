@@ -8,25 +8,34 @@ int main(int ac, char **av)
 	size_t buffsz = 0;
 	ssize_t linesz;
 	FILE *fd;
-	int i;
+	int i, line_number = 0, verif;
+	stack_t *stack = NULL;
 
 	if (ac != 2 )
 	{
 		printf("ERROR monty usage\n"); /*Error*/
+		exit(EXIT_FAILURE);
 	}
 	fd = fopen(file_from, "r");
 	if (fd == NULL)
 	{
 		printf("ERROR can't open file\n"); /*Error*/
+		exit(EXIT_FAILURE);
 	}
 	linesz = getline(&line, &buffsz, fd);
 	while (linesz >= 0)
 	{
+		line_number++;
 		argum = split_line(line);
-		/*print arr trial*/
-		for (i = 0; argum[i] != NULL; i++)
-			printf("Argum[%d] --> %s\n", i, argum[i]);
-		printf("------------------------------------\n");
+		verif = (*get_op_func(argum[0]))(&stack, line_number);
+		if (verif == -1)
+		{
+			_freearrp(argum);
+			free(line);
+			fclose(fd);
+			printf("ERROR not found funct\n"); /*Error*/
+			exit(EXIT_FAILURE);
+		}
 		_freearrp(argum);
 		linesz = getline(&line, &buffsz, fd);
 	}

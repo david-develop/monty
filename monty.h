@@ -8,7 +8,7 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-
+#include <string.h>
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -50,7 +50,7 @@ size_t dlistint_len(const stack_t *head);
 
 /*Source Monty Functions*/
 char **split_line(char *line);
-void (*get_op(char *input))(stack_t **stack, unsigned int line_number);
+int (*get_op(char *input))(stack_t **stack, unsigned int line_number);
 
 /*General Functions*/
 void _freearrp(char **av);
@@ -60,10 +60,10 @@ int _strlen(char *s);
 char *_strtok(char *s, char *delim);
 
 /*Opcode functions*/
-void push_opcode(stack_t **stack, unsigned int line_number);
-void pall_opcode(stack_t **stack, unsigned int line_number);
-void pint_opcode(stack_t **stack, unsigned int line_number);
-void pop_opcode(stack_t **stack, unsigned int line_number);
-void add_opcode(stack_t **stack, unsigned int line_number);
+int push_opcode(stack_t **stack, unsigned int line_number);
+int pall_opcode(stack_t **stack, unsigned int line_number);
+int pint_opcode(stack_t **stack, unsigned int line_number);
+int pop_opcode(stack_t **stack, unsigned int line_number);
+int add_opcode(stack_t **stack, unsigned int line_number);
 
 #endif

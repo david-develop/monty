@@ -6,11 +6,11 @@
  *@line_number: line number
  *Return: Nothing.
  */
-void push_opcode(stack_t **stack, unsigned int line_number);
+int push_opcode(stack_t **stack, unsigned int line_number);
 {
 	(void)line_number;
 
-	add_dnodeint(stack, );
+	add_dnodeint(stack, num);
 }
 
 /**

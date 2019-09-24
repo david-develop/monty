@@ -6,15 +6,16 @@
  * Return:.
  */
 
-void (*get_op(char *input))(stack_t **stack, unsigned int line_number)
+int (*get_op(char *command))(stack_t **stack, unsigned int line_number)
 {
 	instruction_t ops[] = {
 		{"push", push_opcode},
 		{"pall", pall_opcode},
+		/*
 		{"pint", pint_opcode},
 		{"pop", pop_opcode},
 		{"swap", swap_opcode},
-		{"nop", nop_opcode},
+		{"nop", nop_opcode},*/
 		{NULL, NULL}
 	};
 	int i;
@@ -22,11 +23,11 @@ void (*get_op(char *input))(stack_t **stack, unsigned int line_number)
 	i = 0;
 	while (ops[i].opcode != NULL)
 	{
-		if (*input == *ops[i].opcode)
+		if (strcmp(command, ops[i].opcode) == 0)
 		{
 			return (*ops[i].f);
 		}
 		i++;
 	}
-	return (NULL);
+	return (-1);
 }
