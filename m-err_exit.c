@@ -23,4 +23,22 @@ void err_exit_f(unsigned int line_number)
 		_freearrp(global.argum_aux);
 		exit(EXIT_FAILURE);
 	}
+	if (global.verif == -3)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", line_number);
+		fclose(global.file_desc);
+		free(global.line_aux);
+		free_dlistint(global.stack_aux);
+		_freearrp(global.argum_aux);
+		exit(EXIT_FAILURE);
+	}
+	if (global.verif == -4)
+	{
+		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
+		fclose(global.file_desc);
+		free(global.line_aux);
+		free_dlistint(global.stack_aux);
+		_freearrp(global.argum_aux);
+		exit(EXIT_FAILURE);
+	}
 }

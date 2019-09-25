@@ -43,10 +43,12 @@ void pall_opcode(stack_t **stack, unsigned int line_number)
  */
 void pint_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
-
+	if (*stack == NULL)
+	{
+		global.verif = -3;
+		err_exit_f(line_number);
+	}
 	print_dlistfirst(*stack);
-	/*error*/
 }
 
 /**
@@ -57,8 +59,10 @@ void pint_opcode(stack_t **stack, unsigned int line_number)
  */
 void pop_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
-
+	if (*stack == NULL)
+	{
+		global.verif = -4;
+		err_exit_f(line_number);
+	}
 	delete_head(stack, 0);
-	/*error*/
 }
