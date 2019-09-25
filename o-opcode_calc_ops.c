@@ -57,22 +57,19 @@ void div_opcode(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		global.verif = -7;
+		global.verif = -8;
 		err_exit_f_calc(line_number);
 	}
-	else if ((*stack)->n == 0)
+	if ((*stack)->n == 0)
 	{
-		global.verif = -8;
-		err_exit_f(line_number);
+		global.verif = -9;
+		err_exit_f_calc(line_number);
 	}
-	else
-	{
-		tmp = *stack;
-		a = tmp->n;
-		b = tmp->next->n;
-		tmp->next->n = b / a;
-		delete_head(stack, 0);
-	}
+	tmp = *stack;
+	a = tmp->n;
+	b = tmp->next->n;
+	tmp->next->n = b / a;
+	delete_head(stack, 0);
 }
 /**
  * mod_opcode - mod the second top element by the top element

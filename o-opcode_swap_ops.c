@@ -28,17 +28,12 @@ void swap_opcode(stack_t **stack, unsigned int line_number)
  *@line_number: line number
  *Return: Nothing.
  */
+/*
 void rotr_opcode(stack_t **stack, unsigned int line_number)
 {
         stack_t *tmp;
-        (void)line_number;
-
-	tmp = *stack;
-	a = tmp->n;
-	b = tmp->next->n;
-	tmp->n = b;
-	tmp->next->n = a;
-}
+	(void)line_number;
+	}*/
 /**
  * rotl_opcode - swaps the top two elements of the stack.
  *@stack: double pointer to linked list
