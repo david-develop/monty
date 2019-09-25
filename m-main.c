@@ -20,24 +20,25 @@ int main(int ac, char **av)
 	stack_t *stack = NULL;
 
 	if (ac != 2)
-	{
-		fprintf(stderr, "USAGE: monty file\n"); /*Error*/
+	{ fprintf(stderr, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
 	}
 	fd = fopen(file_from, "r");
 	if (fd == NULL)
-	{
-		fprintf(stderr, "Error: Can't open file %s\n", file_from);
+	{ fprintf(stderr, "Error: Can't open file %s\n", file_from);
 		exit(EXIT_FAILURE);
 	}
-	global.file_desc = fd;
-	linesz = getline(&line, &buffsz, fd);
+	global.file_desc = fd, linesz = getline(&line, &buffsz, fd);
 	while (linesz >= 0)
 	{
 		line_number++;
-		global.line_aux = line;
-		global.stack_aux = stack;
+		global.line_aux = line, global.stack_aux = stack;
 		argum = split_line(line);
+		if (argum == NULL)
+		{
+			linesz = getline(&line, &buffsz, fd);
+			continue;
+		}
 		if (argum[1])
 			global.arg_1 = argum[1];
 		else

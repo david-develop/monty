@@ -8,19 +8,19 @@
  */
 void swap_opcode(stack_t **stack, unsigned int line_number)
 {
-        stack_t *tmp;
-        int a, b;
+	stack_t *tmp;
+	int a, b;
 
 	if (dlistint_len(*stack) < 2)
 	{
 		global.verif = -11;
 		err_exit_f(line_number);
 	}
-        tmp = *stack;
-        a = tmp->n;
-        b = tmp->next->n;
-        tmp->n = b;
-        tmp->next->n = a;
+	tmp = *stack;
+	a = tmp->n;
+	b = tmp->next->n;
+	tmp->n = b;
+	tmp->next->n = a;
 }
 /**
  * rotr_opcode - rotates the stack to the bottom.
@@ -33,8 +33,11 @@ void rotr_opcode(stack_t **stack, unsigned int line_number)
         stack_t *tmp;
         (void)line_number;
 
-        tmp = *stack;
-
+	tmp = *stack;
+	a = tmp->n;
+	b = tmp->next->n;
+	tmp->n = b;
+	tmp->next->n = a;
 }
 /**
  * rotl_opcode - swaps the top two elements of the stack.
