@@ -45,6 +45,8 @@ void rotl_opcode(stack_t **stack, unsigned int line_number)
 	stack_t *tmp;
 	(void)line_number;
 
+	if (*stack == NULL)
+		return;
 	tmp = *stack;
 	while (tmp->next != NULL)
 	{
