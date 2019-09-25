@@ -33,11 +33,12 @@ void (*get_op(char *command))(stack_t **stack, unsigned int line_number)
 		{"pstr", pstr_opcode},
 		{"stack", stack_opcode},
 		{"queue", queue_opcode},
+		{"rotl", rotl_opcode},
 		{"nop", non_match},
 		{NULL, non_match}
 	};
 	int i;
-	int num_builts = 15;
+	int num_builts = 16;
 
 	for (i = 0; i < num_builts; i++)
 	{
