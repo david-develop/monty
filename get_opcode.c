@@ -41,6 +41,8 @@ void (*get_op(char *command))(stack_t **stack, unsigned int line_number)
 	int i;
 	int num_builts = 17;
 
+	if (command[0] == '#')
+		command = "#";
 	for (i = 0; i < num_builts; i++)
 	{
 		if (strcmp(command, ops[i].opcode) == 0)
