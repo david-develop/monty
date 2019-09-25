@@ -31,14 +31,10 @@ void swap_opcode(stack_t **stack, unsigned int line_number)
 void rotr_opcode(stack_t **stack, unsigned int line_number)
 {
         stack_t *tmp;
-        int a, b;
         (void)line_number;
 
         tmp = *stack;
-        a = tmp->n;
-        b = tmp->next->n;
-        tmp->n = b;
-        tmp->next->n = a;
+
 }
 /**
  * rotl_opcode - swaps the top two elements of the stack.
@@ -48,19 +44,17 @@ void rotr_opcode(stack_t **stack, unsigned int line_number)
  */
 void rotl_opcode(stack_t **stack, unsigned int line_number)
 {
-	stack_t *tmp, *tmp2;
+	stack_t *tmp;
 	(void)line_number;
 
 	tmp = *stack;
-	tmp2 = *stack;
-	while(tmp != NULL)
+	while(tmp->next != NULL)
 	{
-		tmp = tmp->next;
+	        tmp = tmp->next;
 	}
 	tmp->next = *stack;
-	(*stack)->prev = tmp;
+	tmp = (*stack)->next;
 	(*stack)->next = NULL;
-	tmp = tmp2->next;
-	tmp->prev = NULL;
-	(*stack) = tmp
+	*stack = tmp;
+	(*stack)->prev = NULL;
 }
