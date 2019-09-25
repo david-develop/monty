@@ -83,6 +83,22 @@ void push_opcode(stack_t **stack, unsigned int line_number);
 void pall_opcode(stack_t **stack, unsigned int line_number);
 void pint_opcode(stack_t **stack, unsigned int line_number);
 void pop_opcode(stack_t **stack, unsigned int line_number);
+
+/*Opcode calculator functions*/
 void add_opcode(stack_t **stack, unsigned int line_number);
+void sub_opcode(stack_t **stack, unsigned int line_number);
+void div_opcode(stack_t **stack, unsigned int line_number);
+void mod_opcode(stack_t **stack, unsigned int line_number);
+void mul_opcode(stack_t **stack, unsigned int line_number);
+
+/*Opcode basic functions*/
+void nop_opcode(stack_t **stack, unsigned int line_number);
+void pchar_opcode(stack_t **stack, unsigned int line_number);
+void pstr_opcode(stack_t **stack, unsigned int line_number);
+
+/*Opcode swap functions*/
+void swap_opcode(stack_t **stack, unsigned int line_number);
+void rotr_opcode(stack_t **stack, unsigned int line_number);
+void rotl_opcode(stack_t **stack, unsigned int line_number);
 
 #endif
