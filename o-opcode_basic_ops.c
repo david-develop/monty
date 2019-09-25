@@ -20,8 +20,7 @@ void pchar_opcode(stack_t **stack, unsigned int line_number)
 		global.verif = -12;
 		err_exit_f_pchar(line_number);
 	}
-	putchar(tmp->n);
-	putchar('\n');
+	printf("%c\n", tmp->n);
 }
 /**
  * pstr_opcode - prints the string starting at the top of the stack
