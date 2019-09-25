@@ -35,10 +35,11 @@ void (*get_op(char *command))(stack_t **stack, unsigned int line_number)
 		{"queue", queue_opcode},
 		{"rotl", rotl_opcode},
 		{"nop", non_match},
+		{"#", non_match},
 		{NULL, non_match}
 	};
 	int i;
-	int num_builts = 16;
+	int num_builts = 17;
 
 	for (i = 0; i < num_builts; i++)
 	{
