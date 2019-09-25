@@ -34,7 +34,7 @@ void rotr_opcode(stack_t **stack, unsigned int line_number)
 	stack_t *tmp, *tmp2;
 	(void)line_number;
         
-	if (*stack == NULL)
+	if (*stack == NULL || (*stack)->next == NULL)
                 return;
 	tmp = *stack;
 	while (tmp->next != NULL)
