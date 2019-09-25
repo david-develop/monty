@@ -19,9 +19,9 @@ void nop_opcode(stack_t **stack, unsigned int line_number)
  */
 void pchar_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *tmp;
-        
+	(void)line_number;
+
 	tmp = *stack;
 	putchar((char)tmp->n);
 	putchar('\n');
@@ -34,8 +34,8 @@ void pchar_opcode(stack_t **stack, unsigned int line_number)
  */
 void pstr_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
  	stack_t *tmp;
+	(void)line_number;
 
 	tmp = *stack;
 	while (tmp != NULL && tmp->n != 0)

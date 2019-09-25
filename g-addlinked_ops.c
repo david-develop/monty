@@ -75,8 +75,8 @@ stack_t *add_dnodeint_end(stack_t **head, int n)
 
 void delete_head(stack_t **head, int n)
 {
-	(void)n;
 	stack_t *tmp;
+	(void)n;
 
 	tmp = *head;
 	*head = tmp->next;

@@ -40,6 +40,8 @@ int main(int ac, char **av)
 		argum = split_line(line);
 		if (argum[1])
 			global.arg_1 = argum[1];
+		else
+			global.arg_1 = NULL;
 		(*get_op(argum[0]))(&stack, line_number);
 		if (global.verif < 0)
 			err_exit_f(line_number);

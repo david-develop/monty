@@ -41,4 +41,67 @@ void err_exit_f(unsigned int line_number)
 		_freearrp(global.argum_aux);
 		exit(EXIT_FAILURE);
 	}
+	if (global.verif == -5)
+	{
+		fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+		fclose(global.file_desc);
+		free(global.line_aux);
+		free_dlistint(global.stack_aux);
+		_freearrp(global.argum_aux);
+		exit(EXIT_FAILURE);
+	}
+	if (global.verif == -6)
+	{
+		fprintf(stderr, "L%d: can't sub, stack too short\n", line_number);
+		fclose(global.file_desc);
+		free(global.line_aux);
+		free_dlistint(global.stack_aux);
+		_freearrp(global.argum_aux);
+		exit(EXIT_FAILURE);
+	}
+	if (global.verif == -7)
+	{
+		fprintf(stderr, "L%d: can't div, stack too short\n", line_number);
+		fclose(global.file_desc);
+		free(global.line_aux);
+		free_dlistint(global.stack_aux);
+		_freearrp(global.argum_aux);
+		exit(EXIT_FAILURE);
+	}
+	if (global.verif == -8)
+	{
+		fprintf(stderr, "L%d: division by zero\n", line_number);
+		fclose(global.file_desc);
+		free(global.line_aux);
+		free_dlistint(global.stack_aux);
+		_freearrp(global.argum_aux);
+		exit(EXIT_FAILURE);
+	}
+	if (global.verif == -9)
+	{
+		fprintf(stderr, "L%d: can't mod, stack too short\n", line_number);
+		fclose(global.file_desc);
+		free(global.line_aux);
+		free_dlistint(global.stack_aux);
+		_freearrp(global.argum_aux);
+		exit(EXIT_FAILURE);
+	}
+	if (global.verif == -10)
+	{
+		fprintf(stderr, "L%d: can't mul, stack too short\n", line_number);
+		fclose(global.file_desc);
+		free(global.line_aux);
+		free_dlistint(global.stack_aux);
+		_freearrp(global.argum_aux);
+		exit(EXIT_FAILURE);
+	}
+	if (global.verif == -11)
+	{
+		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
+		fclose(global.file_desc);
+		free(global.line_aux);
+		free_dlistint(global.stack_aux);
+		_freearrp(global.argum_aux);
+		exit(EXIT_FAILURE);
+	}
 }
