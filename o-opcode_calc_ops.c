@@ -60,16 +60,19 @@ void div_opcode(stack_t **stack, unsigned int line_number)
 		global.verif = -7;
 		err_exit_f_calc(line_number);
 	}
-	if ((*stack)->n == 0)
+	else if ((*stack)->n == 0)
 	{
 		global.verif = -8;
 		err_exit_f(line_number);
 	}
-	tmp = *stack;
-	a = tmp->n;
-	b = tmp->next->n;
-	tmp->next->n = b / a;
-	delete_head(stack, 0);
+	else
+	{
+		tmp = *stack;
+		a = tmp->n;
+		b = tmp->next->n;
+		tmp->next->n = b / a;
+		delete_head(stack, 0);
+	}
 }
 /**
  * mod_opcode - mod the second top element by the top element
