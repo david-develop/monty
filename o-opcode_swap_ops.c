@@ -45,12 +45,18 @@ void rotr_opcode(stack_t **stack, unsigned int line_number)
 void rotl_opcode(stack_t **stack, unsigned int line_number)
 {
         (void)line_number;
-        stack_t *tmp;
-        int a, b;
+        stack_t *tmp, *tmp2;
 
-        tmp = *stack;
-        a = tmp->n;
-        b = tmp->next->n;
-        tmp->n = b;
-        tmp->next->n = a;
+	tmp = *stack;
+	tmp2 = *stack;
+	while(tmp != NULL)
+	{
+		tmp = tmp->next;
+	}
+	tmp->next = *stack;
+	(*stack)->prev = tmp;
+	(*stack)->next = NULL;
+	tmp = tmp2->next;
+	tmp->prev = NULL;
+	(*stack) = tmp
 }
