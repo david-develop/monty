@@ -63,7 +63,7 @@ void div_opcode(stack_t **stack, unsigned int line_number)
 	else if ((*stack)->n == 0)
 	{
 		global.verif = -8;
-		err_exit_f(line_number);
+		err_exit_f_calc(line_number);
 	}
 	else
 	{
