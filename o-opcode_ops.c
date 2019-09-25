@@ -8,35 +8,45 @@
  */
 void push_opcode(stack_t **stack, unsigned int line_number)
 {
-	int i, number;
+	int i = 0, number;
 
-	if (global.flag == 0)
+	if (global.arg_1 != NULL)
 	{
-		for (i = 0; global.arg_1[i] != '\0'; i++)
+		if (global.flag == 0)
 		{
-			if (global.arg_1 == NULL || isdigit(global.arg_1[i]) == 0)
+			if (global.arg_1[i] == '-')
+				i++;
+			for (; global.arg_1[i] != '\0'; i++)
 			{
-				global.verif = -2;
-				err_exit_f(line_number);
-			}
-			else
+				if (isdigit(global.arg_1[i]) == 0)
+				{
+					global.verif = -2;
+					err_exit_f(line_number);
+				}
 				number = atoi(global.arg_1);
+			}
+			add_dnodeint(stack, number);
 		}
-		add_dnodeint(stack, number);
+		else
+		{
+			if (global.arg_1[i] == '-')
+				i++;
+			for (i = 0; global.arg_1[i] != '\0'; i++)
+			{
+				if (isdigit(global.arg_1[i]) == 0)
+				{
+					global.verif = -2;
+					err_exit_f(line_number);
+				}
+				number = atoi(global.arg_1);
+			}
+			add_dnodeint_end(stack, number);
+		}
 	}
 	else
 	{
-		for (i = 0; global.arg_1[i] != '\0'; i++)
-		{
-			if (isdigit(global.arg_1[i]) == 0)
-			{
-				global.verif = -2;
-				err_exit_f(line_number);
-			}
-			else
-				number = atoi(global.arg_1);
-		}
-		add_dnodeint_end(stack, number);
+		global.verif = -2;
+		err_exit_f(line_number);
 	}
 }
 /**

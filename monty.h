@@ -40,6 +40,11 @@ typedef struct instruction_s
  * struct global_s - global variables struct
  * @arg_1: first argument
  * @flag: stack if 0, queue otherwise
+ * @verif: erro handler
+ * @file_desc: pointer to file descriptor.
+ * @line_aux: pointer to line.
+ * @stack_aux: pointer to stack linked list
+ * @argum_aux: pointer to string array.
  * Description: global variables
  * for stack, queues, LIFO, FIFO Holberton project
  */
@@ -70,6 +75,8 @@ size_t dlistint_len(const stack_t *head);
 char **split_line(char *line);
 void (*get_op(char *input))(stack_t **stack, unsigned int line_number);
 void err_exit_f(unsigned int line_number);
+void err_exit_f_calc(unsigned int line_number);
+void err_exit_f_pchar(unsigned int line_number);
 
 /*General Functions*/
 void _freearrp(char **av);

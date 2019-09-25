@@ -33,7 +33,7 @@ void (*get_op(char *command))(stack_t **stack, unsigned int line_number)
 		{"pstr", pstr_opcode},
 		{"stack", stack_opcode},
 		{"queue", queue_opcode},
-		{"nop", nop_opcode},
+		{"nop", non_match},
 		{NULL, non_match}
 	};
 	int i;

@@ -14,7 +14,7 @@ void add_opcode(stack_t **stack, unsigned int line_number)
 	if (dlistint_len(*stack) < 2)
 	{
 		global.verif = -5;
-		err_exit_f(line_number);
+		err_exit_f_calc(line_number);
 	}
 	tmp = *stack;
 	a = tmp->n;
@@ -36,7 +36,7 @@ void sub_opcode(stack_t **stack, unsigned int line_number)
 	if (dlistint_len(*stack) < 2)
 	{
 		global.verif = -6;
-		err_exit_f(line_number);
+		err_exit_f_calc(line_number);
 	}
 	tmp = *stack;
 	a = tmp->n;
@@ -58,7 +58,7 @@ void div_opcode(stack_t **stack, unsigned int line_number)
 	if (dlistint_len(*stack) < 2)
 	{
 		global.verif = -7;
-		err_exit_f(line_number);
+		err_exit_f_calc(line_number);
 	}
 	if ((*stack)->n == 0)
 	{
@@ -85,12 +85,12 @@ void mod_opcode(stack_t **stack, unsigned int line_number)
 	if (dlistint_len(*stack) < 2)
 	{
 		global.verif = -9;
-		err_exit_f(line_number);
+		err_exit_f_calc(line_number);
 	}
 	if ((*stack)->n == 0)
 	{
 		global.verif = -8;
-		err_exit_f(line_number);
+		err_exit_f_calc(line_number);
 	}
 	tmp = *stack;
 	a = tmp->n;
@@ -112,7 +112,7 @@ void mul_opcode(stack_t **stack, unsigned int line_number)
 	if (dlistint_len(*stack) < 2)
 	{
 		global.verif = -10;
-		err_exit_f(line_number);
+		err_exit_f_calc(line_number);
 	}
 	tmp = *stack;
 	a = tmp->n;
