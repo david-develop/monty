@@ -14,7 +14,7 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 	{
 		for (i = 0; global.arg_1[i] != '\0'; i++)
 		{
-			if (isdigit(global.arg_1[i]) == 0)
+			if (global.arg_1 == NULL || isdigit(global.arg_1[i]) == 0)
 			{
 				global.verif = -2;
 				err_exit_f(line_number);

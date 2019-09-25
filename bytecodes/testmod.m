@@ -1,8 +1,10 @@
-push 1
-push 1
-push 1
-push 10
-push 2
+push 15
+push 4
+mod
+push 3
+div
+pop
+pop
 pall
 mod
 pall

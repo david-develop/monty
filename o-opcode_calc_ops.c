@@ -8,10 +8,14 @@
  */
 void add_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *tmp;
 	int a, b;
 
+	if (dlistint_len(*stack) < 2)
+	{
+		global.verif = -5;
+		err_exit_f(line_number);
+	}
 	tmp = *stack;
 	a = tmp->n;
 	b = tmp->next->n;
@@ -26,10 +30,14 @@ void add_opcode(stack_t **stack, unsigned int line_number)
  */
 void sub_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *tmp;
 	int a, b;
 
+	if (dlistint_len(*stack) < 2)
+	{
+		global.verif = -6;
+		err_exit_f(line_number);
+	}
 	tmp = *stack;
 	a = tmp->n;
 	b = tmp->next->n;
@@ -44,10 +52,19 @@ void sub_opcode(stack_t **stack, unsigned int line_number)
  */
 void div_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *tmp;
 	int a, b;
 
+	if (dlistint_len(*stack) < 2)
+	{
+		global.verif = -7;
+		err_exit_f(line_number);
+	}
+	if ((*stack)->n == 0)
+	{
+		global.verif = -8;
+		err_exit_f(line_number);
+	}
 	tmp = *stack;
 	a = tmp->n;
 	b = tmp->next->n;
@@ -55,17 +72,26 @@ void div_opcode(stack_t **stack, unsigned int line_number)
 	delete_head(stack, 0);
 }
 /**
- * mod_opcode - 
+ * mod_opcode - mod the second top element by the top element
  *@stack: double pointer to linked list
  *@line_number: line number
  *Return: Nothing.
  */
 void mod_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *tmp;
 	int a, b;
 
+	if (dlistint_len(*stack) < 2)
+	{
+		global.verif = -9;
+		err_exit_f(line_number);
+	}
+	if ((*stack)->n == 0)
+	{
+		global.verif = -8;
+		err_exit_f(line_number);
+	}
 	tmp = *stack;
 	a = tmp->n;
 	b = tmp->next->n;
@@ -80,10 +106,14 @@ void mod_opcode(stack_t **stack, unsigned int line_number)
  */
 void mul_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *tmp;
 	int a, b;
 
+	if (dlistint_len(*stack) < 2)
+	{
+		global.verif = -10;
+		err_exit_f(line_number);
+	}
 	tmp = *stack;
 	a = tmp->n;
 	b = tmp->next->n;

@@ -8,10 +8,14 @@
  */
 void swap_opcode(stack_t **stack, unsigned int line_number)
 {
-        (void)line_number;
         stack_t *tmp;
         int a, b;
 
+	if (dlistint_len(*stack) < 2)
+	{
+		global.verif = -11;
+		err_exit_f(line_number);
+	}
         tmp = *stack;
         a = tmp->n;
         b = tmp->next->n;
@@ -26,9 +30,9 @@ void swap_opcode(stack_t **stack, unsigned int line_number)
  */
 void rotr_opcode(stack_t **stack, unsigned int line_number)
 {
-        (void)line_number;
         stack_t *tmp;
         int a, b;
+        (void)line_number;
 
         tmp = *stack;
         a = tmp->n;
@@ -44,9 +48,9 @@ void rotr_opcode(stack_t **stack, unsigned int line_number)
  */
 void rotl_opcode(stack_t **stack, unsigned int line_number)
 {
-        (void)line_number;
         stack_t *tmp;
         int a, b;
+        (void)line_number;
 
         tmp = *stack;
         a = tmp->n;
