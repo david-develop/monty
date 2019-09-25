@@ -14,8 +14,8 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 	{
 		if (isdigit(global.arg_1[i]) == 0)
 		{
-			fprintf(stderr, "L%i: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
+			global.verif = -2;
+			err_exit_f(line_number);
 		}
 		else
 			number = atoi(global.arg_1);

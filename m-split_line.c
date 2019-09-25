@@ -76,6 +76,6 @@ char **split_line(char *line)
 	}
 	/*Finish the **array with NULL*/
 	av[count_buff] = NULL;
-
+	global.argum_aux = av;
 	return (av);
 }

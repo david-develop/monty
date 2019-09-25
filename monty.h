@@ -47,7 +47,11 @@ typedef struct global_s
 {
 	char *arg_1;
 	int flag;
-	ssize_t verif;
+	int verif;
+	FILE *file_desc;
+	char *line_aux;
+	stack_t *stack_aux;
+	char **argum_aux;
 } global_t;
 
 /*Global variable*/
@@ -65,6 +69,7 @@ size_t dlistint_len(const stack_t *head);
 /*Source Monty Functions*/
 char **split_line(char *line);
 void (*get_op(char *input))(stack_t **stack, unsigned int line_number);
+void err_exit_f(unsigned int line_number);
 
 /*General Functions*/
 void _freearrp(char **av);
