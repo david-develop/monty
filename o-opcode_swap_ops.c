@@ -65,6 +65,7 @@ void rotl_opcode(stack_t **stack, unsigned int line_number)
 		tmp = tmp->next;
 	}
 	tmp->next = *stack;
+	(*stack)->prev = tmp;
 	tmp = (*stack)->next;
 	(*stack)->next = NULL;
 	*stack = tmp;
