@@ -10,17 +10,34 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 {
 	int i, number;
 
-	for (i = 0; global.arg_1[i] != '\0'; i++)
+	if (global.flag == 0)
 	{
-		if (isdigit(global.arg_1[i]) == 0)
+		for (i = 0; global.arg_1[i] != '\0'; i++)
 		{
-			global.verif = -2;
-			err_exit_f(line_number);
+			if (isdigit(global.arg_1[i]) == 0)
+			{
+				global.verif = -2;
+				err_exit_f(line_number);
+			}
+			else
+				number = atoi(global.arg_1);
 		}
-		else
-			number = atoi(global.arg_1);
+		add_dnodeint(stack, number);
 	}
-	add_dnodeint(stack, number);
+	else
+	{
+		for (i = 0; global.arg_1[i] != '\0'; i++)
+		{
+			if (isdigit(global.arg_1[i]) == 0)
+			{
+				global.verif = -2;
+				err_exit_f(line_number);
+			}
+			else
+				number = atoi(global.arg_1);
+		}
+		add_dnodeint_end(stack, number);
+	}
 }
 /**
  * pall_opcode - prints all the values on the stack
