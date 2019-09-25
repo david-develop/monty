@@ -34,12 +34,13 @@ void (*get_op(char *command))(stack_t **stack, unsigned int line_number)
 		{"stack", stack_opcode},
 		{"queue", queue_opcode},
 		{"rotl", rotl_opcode},
+		{"rotr", rotr_opcode},
 		{"nop", non_match},
 		{"#", non_match},
 		{NULL, non_match}
 	};
 	int i;
-	int num_builts = 17;
+	int num_builts = 18;
 
 	if (command[0] == '#')
 		command = "#";
