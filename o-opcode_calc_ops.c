@@ -57,12 +57,12 @@ void div_opcode(stack_t **stack, unsigned int line_number)
 
 	if (dlistint_len(*stack) < 2)
 	{
-		global.verif = -8;
+		global.verif = -7;
 		err_exit_f_calc(line_number);
 	}
 	if ((*stack)->n == 0)
 	{
-		global.verif = -9;
+		global.verif = -8;
 		err_exit_f_calc(line_number);
 	}
 	tmp = *stack;
