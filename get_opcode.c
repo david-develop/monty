@@ -23,13 +23,21 @@ void (*get_op(char *command))(stack_t **stack, unsigned int line_number)
 		{"pall", pall_opcode},
 		{"pint", pint_opcode},
 		{"pop", pop_opcode},
-		/*{"add", add_opcode},
 		{"swap", swap_opcode},
-		{"nop", nop_opcode},*/
+		{"add", add_opcode},
+		{"sub", sub_opcode},
+		{"div", div_opcode},
+		{"mul", mul_opcode},
+		{"mod", mod_opcode},
+		{"pchar", pchar_opcode},
+		{"pstr", pstr_opcode},
+		{"stack", stack_opcode},
+		{"queue", queue_opcode},
+		{"nop", nop_opcode},
 		{NULL, non_match}
 	};
 	int i;
-	int num_builts = 4;
+	int num_builts = 15;
 
 	for (i = 0; i < num_builts; i++)
 	{

@@ -8,6 +8,8 @@ void _freearrp(char **av)
 {
 	int i;
 
+	if (!av)
+		return;
 	for (i = 0; av[i]; i++)
 	{
 		free(av[i]);

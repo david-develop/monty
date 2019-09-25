@@ -10,17 +10,34 @@ void push_opcode(stack_t **stack, unsigned int line_number)
 {
 	int i, number;
 
-	for (i = 0; global.arg_1[i] != '\0'; i++)
+	if (global.flag == 0)
 	{
-		if (isdigit(global.arg_1[i]) == 0)
+		for (i = 0; global.arg_1[i] != '\0'; i++)
 		{
-			fprintf(stderr, "L%i: usage: push integer\n", line_number);
-			exit(EXIT_FAILURE);
+			if (isdigit(global.arg_1[i]) == 0)
+			{
+				global.verif = -2;
+				err_exit_f(line_number);
+			}
+			else
+				number = atoi(global.arg_1);
 		}
-		else
-			number = atoi(global.arg_1);
+		add_dnodeint(stack, number);
 	}
-	add_dnodeint(stack, number);
+	else
+	{
+		for (i = 0; global.arg_1[i] != '\0'; i++)
+		{
+			if (isdigit(global.arg_1[i]) == 0)
+			{
+				global.verif = -2;
+				err_exit_f(line_number);
+			}
+			else
+				number = atoi(global.arg_1);
+		}
+		add_dnodeint_end(stack, number);
+	}
 }
 /**
  * pall_opcode - prints all the values on the stack
@@ -43,10 +60,12 @@ void pall_opcode(stack_t **stack, unsigned int line_number)
  */
 void pint_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
-
+	if (*stack == NULL)
+	{
+		global.verif = -3;
+		err_exit_f(line_number);
+	}
 	print_dlistfirst(*stack);
-	/*error*/
 }
 
 /**
@@ -57,8 +76,10 @@ void pint_opcode(stack_t **stack, unsigned int line_number)
  */
 void pop_opcode(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
-
+	if (*stack == NULL)
+	{
+		global.verif = -4;
+		err_exit_f(line_number);
+	}
 	delete_head(stack, 0);
-	/*error*/
 }
