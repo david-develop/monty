@@ -28,14 +28,13 @@ void swap_opcode(stack_t **stack, unsigned int line_number)
  *@line_number: line number
  *Return: Nothing.
  */
-
 void rotr_opcode(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp, *tmp2;
 	(void)line_number;
-        
+
 	if (*stack == NULL || (*stack)->next == NULL)
-                return;
+		return;
 	tmp = *stack;
 	while (tmp->next != NULL)
 	{
