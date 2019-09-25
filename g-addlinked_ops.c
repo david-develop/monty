@@ -79,11 +79,11 @@ void delete_head(stack_t **head, int n)
 	(void)n;
 
 	tmp = *head;
-	*head = tmp->next;
 	if (tmp->next != NULL)
 	{
 		(*head)->prev = NULL;
 	}
+	*head = tmp->next;
 	free(tmp);
 }
 
