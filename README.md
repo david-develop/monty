@@ -34,6 +34,13 @@ This interpreter supports the next opcode commands:
     
     add - adds the top two elements of the stack.
 
+    nop - doesn’t do anything.
+
+    sub - subtracts the top element of the stack from the second top element of the stack.
+
+    div - divides the second top element of the stack by the top element of the stack.
+
+
 
 ## Authors:
 - David Peralta
