@@ -43,6 +43,10 @@ This interpreter supports the next opcode commands:
     mul - multiplies the second top element of the stack with the top element of the stack.
 
     mod - computes the rest of the division of the second top element of the stack by the top element of the stack.
+    
+    pchar - prints the char at the top of the stack
+
+    pstr - prints the string starting at the top of the stack
 
 ## Authors:
 - David Peralta
