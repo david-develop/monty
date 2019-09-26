@@ -57,5 +57,5 @@ This interpreter supports the next opcode commands:
     queue - sets the format of the data to a queue (FIFO).
 
 ## Authors:
-- David Peralta
-- Diego Lopez
+- David Peralta <924@holbertonschool.com>
+- Diego Lopez <927@holbertonschool.com>
