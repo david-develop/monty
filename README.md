@@ -17,7 +17,11 @@ The goal of this project is to create an interpreter for Monty ByteCodes files.
 3. Now execute.
       
        $ ./monty bytecodes/00.m
+       
+## Opcode Commands
 
-## AUTHORS:
+This interpreter supports the next opcode commands:
+
+## Authors:
 - David Peralta
 - Diego Lopez
