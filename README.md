@@ -22,6 +22,19 @@ The goal of this project is to create an interpreter for Monty ByteCodes files.
 
 This interpreter supports the next opcode commands:
 
+    push - pushes an element to the stack.
+
+    pall - prints all the values on the stack, starting from the top of the stack.
+
+    pint - prints the value at the top of the stack.
+    
+    pop - removes the top element of the stack.
+    
+    swap - swaps the top two elements of the stack.
+    
+    add - adds the top two elements of the stack.
+
+
 ## Authors:
 - David Peralta
 - Diego Lopez
