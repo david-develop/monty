@@ -39,8 +39,10 @@ This interpreter supports the next opcode commands:
     sub - subtracts the top element of the stack from the second top element of the stack.
 
     div - divides the second top element of the stack by the top element of the stack.
+    
+    mul - multiplies the second top element of the stack with the top element of the stack.
 
-
+    mod - computes the rest of the division of the second top element of the stack by the top element of the stack.
 
 ## Authors:
 - David Peralta
