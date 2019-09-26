@@ -52,6 +52,10 @@ This interpreter supports the next opcode commands:
     
     rotr - rotates the stack to the bottom. (The last element of the stack becomes the top element of the stack)
 
+    stack - sets the format of the data to a stack (LIFO).
+    
+    queue - sets the format of the data to a queue (FIFO).
+
 ## Authors:
 - David Peralta
 - Diego Lopez
