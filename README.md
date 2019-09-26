@@ -44,9 +44,13 @@ This interpreter supports the next opcode commands:
 
     mod - computes the rest of the division of the second top element of the stack by the top element of the stack.
     
-    pchar - prints the char at the top of the stack
+    pchar - prints the char at the top of the stack.
 
-    pstr - prints the string starting at the top of the stack
+    pstr - prints the string starting at the top of the stack.
+
+    rotl - rotates the stack to the top. (The top element of the stack becomes the last one, and the second top element of the stack becomes the first one)
+    
+    rotr - rotates the stack to the bottom. (The last element of the stack becomes the top element of the stack)
 
 ## Authors:
 - David Peralta
