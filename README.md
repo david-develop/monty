@@ -56,6 +56,27 @@ This interpreter supports the next opcode commands:
     
     queue - sets the format of the data to a queue (FIFO).
 
+
+## Example:
+
+       /0x19-stacks_queues_lifo_fifo$ cat bytecodes/00.m
+       queue
+       push 1
+       push 2
+       push 3
+       pall
+       stack
+       push 4
+       push 5
+       push 6
+       pall
+       add
+       pall
+       queue
+       push 11111
+       add
+       pall
+
 ## Authors:
 - David Peralta <924@holbertonschool.com>
 - Diego Lopez <927@holbertonschool.com>
