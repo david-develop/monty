@@ -48,7 +48,7 @@ This interpreter supports the next opcode commands:
 
     pstr - prints the string starting at the top of the stack.
 
-    rotl - The top element of the stack becomes the last one, and the second top element of the stack becomes the first one.
+    rotl - The top element of the stack becomes the last one and the second top element becomes the first one.
     
     rotr - The last element of the stack becomes the top element of the stack.
 
@@ -76,7 +76,7 @@ This interpreter supports the next opcode commands:
        push 11111
        add
        pall
-       0x19-stacks_queues_lifo_fifo$ ./monty bytecodes/47.m
+       /0x19-stacks_queues_lifo_fifo$ ./monty bytecodes/00.m
        1
        2
        3
@@ -96,7 +96,7 @@ This interpreter supports the next opcode commands:
        2
        3
        11111
-       0x19-stacks_queues_lifo_fifo$
+       /0x19-stacks_queues_lifo_fifo$
        
 ## Authors:
 - David Peralta <924@holbertonschool.com>
