@@ -23,7 +23,7 @@ The goal of this project is to create an interpreter for Monty ByteCodes files.
 This interpreter supports the next opcode commands:
 
     push - pushes an element to the stack.
-
+       
     pall - prints all the values on the stack, starting from the top of the stack.
 
     pint - prints the value at the top of the stack.
@@ -48,9 +48,9 @@ This interpreter supports the next opcode commands:
 
     pstr - prints the string starting at the top of the stack.
 
-    rotl - rotates the stack to the top. (The top element of the stack becomes the last one, and the second top element of the stack becomes the first one)
+    rotl - The top element of the stack becomes the last one, and the second top element of the stack becomes the first one.
     
-    rotr - rotates the stack to the bottom. (The last element of the stack becomes the top element of the stack)
+    rotr - The last element of the stack becomes the top element of the stack.
 
     stack - sets the format of the data to a stack (LIFO).
     
@@ -76,7 +76,28 @@ This interpreter supports the next opcode commands:
        push 11111
        add
        pall
-
+       0x19-stacks_queues_lifo_fifo$ ./monty bytecodes/47.m
+       1
+       2
+       3
+       6
+       5
+       4
+       1
+       2
+       3
+       11
+       4
+       1
+       2
+       3
+       15
+       1
+       2
+       3
+       11111
+       0x19-stacks_queues_lifo_fifo$
+       
 ## Authors:
 - David Peralta <924@holbertonschool.com>
 - Diego Lopez <927@holbertonschool.com>
